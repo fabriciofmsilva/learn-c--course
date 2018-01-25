@@ -1,12 +1,15 @@
-﻿namespace SimpleCalculator
+﻿using System;
+
+namespace SimpleCalculator
 {
     class Program
     {
         static void Main(string[] args)
         {
             Person person1 = new Person();
-            Person person2 = new Person();
-            string newText = "some text";
+            Console.WriteLine(person1.GetAge());
+            person1.SetAge(29);
+            Console.WriteLine(person1.GetAge());
         }
     }
 }
