@@ -4,7 +4,7 @@ namespace SimpleCalculator
 {
     public class InputConverter
     {
-        internal double ConvertInputToNumeric(string argTextInput)
+        public double ConvertInputToNumeric(string argTextInput)
         {
             double convertedNumber;
             if (!double.TryParse(argTextInput, out convertedNumber))
