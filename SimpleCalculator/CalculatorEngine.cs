@@ -4,7 +4,7 @@ namespace SimpleCalculator
 {
     public class CalculatorEngine
     {
-        internal double Calculate(string argOperation, double argFirstNumber, double argSecondNumber)
+        public double Calculate(string argOperation, double argFirstNumber, double argSecondNumber)
         {
             double result;
             switch (argOperation.ToLower())
