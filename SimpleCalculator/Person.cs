@@ -1,4 +1,6 @@
-﻿namespace SimpleCalculator
+﻿using System;
+
+namespace SimpleCalculator
 {
     public class Person
     {
@@ -12,6 +14,11 @@
         public void SetAge(int newAge)
         {
             _age = newAge;
+        }
+
+        static public void Greet()
+        {
+            Console.WriteLine("Hello!");
         }
     }
 }
