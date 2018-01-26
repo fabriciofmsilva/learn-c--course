@@ -6,12 +6,19 @@ namespace SimpleCalculator
     {
         static void Main(string[] args)
         {
-            Person person1 = new Person();
-            Console.WriteLine(person1.GetAge());
-            person1.SetAge(29);
-            Console.WriteLine(person1.GetAge());
+            //string newText = "this is some text".Substring(8, 1000);
 
-            Person.Greet();
+            //Exception myFirstException = new Exception();
+
+            string input = Console.ReadLine();
+
+            int convertedNumber;
+            bool isConvertedSuccessfully = int.TryParse(input, out convertedNumber);
+
+            if (!isConvertedSuccessfully)
+            {
+                throw new Exception("Conversion was not successful.");
+            }
         }
     }
 }
