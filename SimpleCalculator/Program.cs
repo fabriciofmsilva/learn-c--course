@@ -6,18 +6,27 @@ namespace SimpleCalculator
     {
         static void Main(string[] args)
         {
-            //string newText = "this is some text".Substring(8, 1000);
-
-            //Exception myFirstException = new Exception();
-
-            string input = Console.ReadLine();
-
-            int convertedNumber;
-            bool isConvertedSuccessfully = int.TryParse(input, out convertedNumber);
-
-            if (!isConvertedSuccessfully)
+            try
             {
-                throw new Exception("Conversion was not successful.");
+                string input = Console.ReadLine();
+
+                try
+                {
+                    StringToIntConverter stringToIntConverter = new StringToIntConverter();
+                    stringToIntConverter.Converter(input);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("There was an error with conversion: {0}", ex.Message);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("There was an error: {0}", ex.Message);
+            }
+            finally
+            {
+                Console.WriteLine("The rest of my application is still running.");
             }
         }
     }
