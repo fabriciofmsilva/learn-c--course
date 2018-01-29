@@ -1,33 +1,47 @@
 # Algorithm
 
-first number = get input from user
+option = get input from user
 
-if first number not numeric then print warning
+if option is manual then ask user to enter scrambled word or words comma separated
 
-second number = get input from user
+if option is file then ask user to enter the full path including the file name
 
-if second number not numeric then print warning
+	if file not recognized then show warning and ask if user wants to continue
 
-operation = get input from user
+		if user chooses yes then go to first step
 
-lower case the operation for case insensitivity
+		if user chooses no then exit application
 
-if the operation is + or "add" then
+if option is not recognized then show warning and ask if user wants to continue
 
-    print first number + second number
+	if user chooses yes then go to first step
 
-otherwise if operation is - or "subtract" then
+	if user chooses no then exit application
 
-    print first number - second number
+load the word list specified by the user for unscrambling the given scrambled words
 
-otherwise if operation is * or "multiply" then
+start matching scrambled words against the loaded word list
 
-    print first number + second number
+	for each scrambled word in specified scrambled words
 
-otherwise if operation is / or "divide" then
+		for each unscrambled word in word list
 
-    print firs number / second number
+			if scrambled word == unscrambled word then add to list of matched
 
-otherwise
+			otherwise
 
-    print warning
+				sort scrambled word
+
+				sort unscrambled word
+
+				if sorted scrambled word == sorted unscrambled word then add to list of matched
+
+if matches found then show matched scrambled words for all unscrambled words
+
+otherwise show message that no matches have been found
+
+ask if user wants to continue
+
+	if user chooses yes then go to first step
+
+	if user chooses no then exit application
