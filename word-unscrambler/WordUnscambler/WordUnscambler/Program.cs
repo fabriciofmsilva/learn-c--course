@@ -7,16 +7,17 @@ namespace WordUnscambler
     {
         static void Main(string[] args)
         {
-            var myVarFirstList = new List<int>();
-            List<int> myFirstList = new List<int>();
+            int[] myFirstArray = new int[10];
 
-            Console.WriteLine(myFirstList.Count);
+            //myFirstArray[1000] = 5;
+            //myFirstArray[10] = 5;
+            myFirstArray[9] = 5;
 
-            myFirstList.Add(10);
-            myFirstList.Add(5);
-            //myFirstList.Add("text");
+            var mySecondList = new List<int>();
+            mySecondList.Add(5);
 
-            Console.WriteLine(myFirstList.Count);
+            Console.WriteLine(mySecondList[0]);
+            //Console.WriteLine(mySecondList[1]);
         }
     }
 }
