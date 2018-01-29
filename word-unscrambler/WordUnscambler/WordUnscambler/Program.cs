@@ -7,17 +7,27 @@ namespace WordUnscambler
     {
         static void Main(string[] args)
         {
-            //int[] myArray = new int[5];
-            //myArray[0] = 7;
-            //myArray[1] = 8;
-            //myArray[2] = 4;
-            //myArray[3] = 5;
-            //myArray[4] = 15;
-            int[] myArray = { 7, 8, 4, 5, 15 };
+            //Console.WriteLine("This is line 1.");
+            //Console.WriteLine("This is line 2.");
+            //Console.WriteLine("This is line 3.");
+            //Console.WriteLine("This is line 4.");
+            //Console.WriteLine("This is line 5.");
 
-            Console.WriteLine(myArray);
-            Array.Sort(myArray);
-            Console.WriteLine(myArray);
+            for (int i = 1; i <= 5; i++)
+            {
+                Console.WriteLine("This is line {0}", i);
+            }
+
+            //Console.WriteLine("This is line 5.");
+            //Console.WriteLine("This is line 4.");
+            //Console.WriteLine("This is line 3.");
+            //Console.WriteLine("This is line 2.");
+            //Console.WriteLine("This is line 1.");
+
+            for (int i = 5; i >= 1; i--)
+            {
+                Console.WriteLine("This is line {0}", i);
+            }
         }
     }
 }
