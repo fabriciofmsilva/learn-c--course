@@ -6,22 +6,12 @@ namespace WordUnscambler
     {
         static void Main(string[] args)
         {
-            //var input = Console.ReadLine();
-            //Console.WriteLine("User input is {0}", input);
+            int[] array = { 1, 5, 6, 9, 10 };
 
-            //while (!input.Equals(string.Empty))
-            //{
-            //    input = Console.ReadLine();
-            //    Console.WriteLine("User input is {0}", input);
-            //}
-
-            var input = string.Empty;
-
-            do
+            foreach (var element in array)
             {
-                input = Console.ReadLine();
-                Console.WriteLine("User input is {0}", input);
-            } while (!input.Equals(string.Empty));
+                Console.WriteLine(element);
+            }
         }
     }
 }
