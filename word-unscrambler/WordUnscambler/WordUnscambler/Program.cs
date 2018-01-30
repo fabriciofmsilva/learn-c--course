@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace WordUnscambler
 {
@@ -7,37 +6,28 @@ namespace WordUnscambler
     {
         static void Main(string[] args)
         {
-            int[] array = { 1, 5, 6, 9, 10 };
-            List<int> list = new List<int>() { 1, 5, 6, 9, 10 };
+            int a = 10;
+            ChangeNumber(a);
+            Console.WriteLine(a);
 
-            foreach (var element in array)
-            {
-                Console.WriteLine(element);
-            }
+            Person person = new Person();
+            person.FirstName = "John";
+            person.LastName = "Smith";
 
-            // not make sanse for this case, foreach is more clean
-            for (int i = 0; i < array.Length; i++)
-            {
-                Console.WriteLine(array[i]);
-            }
+            ChangeName(person);
+            Console.WriteLine(person.FirstName);
+            Console.WriteLine(person.LastName);
+        }
 
-            // not make sense for this case
-            int index = 0;
-            while (index < array.Length)
-            {
-                Console.WriteLine(array[index]);
-                index++;
-            }
+        static void ChangeNumber(int a)
+        {
+            a = 90;
+        }
 
-            foreach (var element in list)
-            {
-                Console.WriteLine(element);
-            }
-
-            for (int i = 0; i < list.Count; i++)
-            {
-                Console.WriteLine(list[i]);
-            }
+        static void ChangeName(Person personToChange)
+        {
+            personToChange.FirstName = "Jane";
+            personToChange.LastName = "Doe";
         }
     }
 }
