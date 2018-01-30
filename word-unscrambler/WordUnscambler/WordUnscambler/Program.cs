@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace WordUnscambler
 {
@@ -7,26 +6,13 @@ namespace WordUnscambler
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine("This is line 1.");
-            //Console.WriteLine("This is line 2.");
-            //Console.WriteLine("This is line 3.");
-            //Console.WriteLine("This is line 4.");
-            //Console.WriteLine("This is line 5.");
+            var input = Console.ReadLine();
+            Console.WriteLine("User input is {0}", input);
 
-            for (int i = 1; i <= 5; i++)
+            while (!input.Equals(string.Empty))
             {
-                Console.WriteLine("This is line {0}", i);
-            }
-
-            //Console.WriteLine("This is line 5.");
-            //Console.WriteLine("This is line 4.");
-            //Console.WriteLine("This is line 3.");
-            //Console.WriteLine("This is line 2.");
-            //Console.WriteLine("This is line 1.");
-
-            for (int i = 5; i >= 1; i--)
-            {
-                Console.WriteLine("This is line {0}", i);
+                input = Console.ReadLine();
+                Console.WriteLine("User input is {0}", input);
             }
         }
     }
