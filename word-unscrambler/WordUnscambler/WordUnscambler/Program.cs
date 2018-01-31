@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 
 namespace WordUnscambler
 {
@@ -7,23 +6,47 @@ namespace WordUnscambler
     {
         static void Main(string[] args)
         {
-            string[] lines = { "First line", "Second line", "Third line" };
-            File.WriteAllLines("FormattedFile.txt", FormattedLines(lines));
+            bool continueWordUnscramble = true;
+            do
+            {
+                Console.WriteLine("Please enter the option - F for File and M for Manual");
+                var option = Console.ReadLine() ?? string.Empty;
 
-            string[] otherLines = { "Another first line", "Another second line", "Another third line" };
-            File.WriteAllLines("AnotherFormattedFile.txt", FormattedLines(otherLines));
+                switch (option.ToUpper())
+                {
+                    case "F":
+                        Console.Write("Enter scrambled words file name: ");
+                        ExecuteScrambledWordsInFileScenario();
+                        break;
+                    case "M":
+                        Console.Write("Enter scrambled words manually: ");
+                        ExecuteScrambledWordsManuallyEntryScenario();
+                        break;
+                    default:
+                        Console.Write("Option was not recognized.");
+                        break;
+                }
+
+                var continueWordUnscrambleDecision = string.Empty;
+                do
+                {
+                    Console.WriteLine("Do you want to continue? Y/N");
+                    continueWordUnscrambleDecision = (Console.ReadLine() ?? string.Empty);
+                } while (
+                    !continueWordUnscrambleDecision.Equals("Y", StringComparison.OrdinalIgnoreCase) &&
+                    !continueWordUnscrambleDecision.Equals("N", StringComparison.OrdinalIgnoreCase));
+
+                continueWordUnscramble = continueWordUnscrambleDecision.Equals("Y", StringComparison.OrdinalIgnoreCase);
+
+            } while (continueWordUnscramble);
         }
 
-        static string[] FormattedLines(String[] unformattedLines)
+        private static void ExecuteScrambledWordsManuallyEntryScenario()
         {
-            string[] formattedLines = new string[unformattedLines.Length];
+        }
 
-            for (int i = 0; i < formattedLines.Length; i++)
-            {
-                formattedLines[i] = String.Format("{0} {1} {2}", "---", unformattedLines[i], "---");
-            }
-
-            return formattedLines;
+        private static void ExecuteScrambledWordsInFileScenario()
+        {
         }
     }
 }
