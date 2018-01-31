@@ -1,25 +1,21 @@
 ﻿using System;
+using System.IO;
 
 namespace WordUnscambler
 {
     class Program
     {
-        //public const string someText;
-        public const string someText = "This is text";
-        //public const person person = new Person("A", "B");
-
-        //public static readonly string someOtherText;
-        public static readonly string someOtherText = "This is some other text";
-        //public static readonly Person person = new Person("A", "B");
-
         static void Main(string[] args)
         {
-            //Program.someText;
-            //Program program = new Program();
-            //program.someOtherText;
+            string[] lines = { "This is the first line", "This is the second line", "This is the third line" };
+            File.WriteAllLines("MyFirstFile.txt", lines);
 
-            Console.WriteLine(someText);
-            Console.WriteLine(someOtherText);
+            string[] fileContents = File.ReadAllLines("MyFirstFile.txt");
+
+            foreach(string line in File.ReadLines("MyFirstFile.txt"))
+            {
+                Console.WriteLine(line);
+            }
         }
     }
 }
