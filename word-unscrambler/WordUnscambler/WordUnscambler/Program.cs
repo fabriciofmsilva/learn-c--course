@@ -6,10 +6,6 @@ namespace WordUnscambler
     {
         static void Main(string[] args)
         {
-            int a = 10;
-            ChangeNumber(a);
-            Console.WriteLine(a);
-
             Person person = new Person();
             person.FirstName = "John";
             person.LastName = "Smith";
@@ -17,11 +13,6 @@ namespace WordUnscambler
             ChangeName(person);
             Console.WriteLine(person.FirstName);
             Console.WriteLine(person.LastName);
-        }
-
-        static void ChangeNumber(int a)
-        {
-            a = 90;
         }
 
         static void ChangeName(Person personToChange)
