@@ -4,14 +4,22 @@ namespace WordUnscambler
 {
     class Program
     {
+        //public const string someText;
+        public const string someText = "This is text";
+        //public const person person = new Person("A", "B");
+
+        //public static readonly string someOtherText;
+        public static readonly string someOtherText = "This is some other text";
+        //public static readonly Person person = new Person("A", "B");
+
         static void Main(string[] args)
         {
-            //Person person = null;
-            Person person = new Person("John", "Smith");
+            //Program.someText;
+            //Program program = new Program();
+            //program.someOtherText;
 
-            Person newPerson = person ?? new Person("Default", "Person");
-
-            Console.WriteLine(newPerson.FirstName);
+            Console.WriteLine(someText);
+            Console.WriteLine(someOtherText);
         }
     }
 }
