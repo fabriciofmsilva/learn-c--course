@@ -6,19 +6,18 @@ namespace WordUnscambler
     {
         static void Main(string[] args)
         {
-            Person person = new Person();
-            person.FirstName = "John";
-            person.LastName = "Smith";
-
-            ChangeName(person);
-            Console.WriteLine(person.FirstName);
-            Console.WriteLine(person.LastName);
+            // ref need initialize and don't neet to assign in method
+            int a = 10;
+            ChangeNumber(ref a);
+            // out not need initialize and need to assign in method
+            // int a;
+            // ChangeNumber(out a);
+            Console.WriteLine(a);
         }
 
-        static void ChangeName(Person personToChange)
+        static void ChangeNumber(ref int a)
         {
-            personToChange.FirstName = "Jane";
-            personToChange.LastName = "Doe";
+            a = 90;
         }
     }
 }
