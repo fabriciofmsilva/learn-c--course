@@ -1,53 +1,22 @@
-﻿using System;
-
-namespace SimpleWebScraper
+﻿namespace SimpleWebScraper
 {
     class Person
     {
-        private string _ssn = "SSN";
-        private string _passportData = "Data";
-        private string _drivesLicenceNumber = "More Data";
-        private string _firstName = "Avetis";
-        private string _lastName = "Ghukasyan";
+        private string _ssn;
+        private string _passportData;
+        private string _driversLicenceNumber;
+
+        public Person(string ssn, string passportData, string diversLicenseNumber)
+        {
+            _ssn = ssn;
+            _passportData = passportData;
+            _driversLicenceNumber = diversLicenseNumber;
+        }
 
         public bool HasProperDocuments {
             get
             {
-                return _ssn.Length > 0 && _passportData.Length > 0 && _drivesLicenceNumber.Length > 0;
-            }
-        }
-
-        public string FirstName {
-            get
-            {
-                return _firstName;
-            }
-            set
-            {
-                if (value.Length < 1)
-                {
-                    Console.WriteLine("Input is not accepted.");
-                    return;
-                }
-
-                _firstName = value;
-            }
-        }
-        public string LastName
-        {
-            get
-            {
-                return _lastName;
-            }
-            set
-            {
-                if (value.Length < 1)
-                {
-                    Console.WriteLine("Input is not accepted.");
-                    return;
-                }
-
-                _lastName = value;
+                return _ssn.Length > 0 && _passportData.Length > 0 && _driversLicenceNumber.Length > 0;
             }
         }
     }
