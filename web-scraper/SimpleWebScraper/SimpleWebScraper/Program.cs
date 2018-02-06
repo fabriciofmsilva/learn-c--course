@@ -1,14 +1,22 @@
-﻿namespace SimpleWebScraper
+﻿using System;
+
+namespace SimpleWebScraper
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Person person1 = new PersonBuilder().Build();
+            SimpleCalculator simpleCalculator = new SimpleCalculator();
 
-            Person person2 = new PersonBuilder().WithAge(35).Build();
-
-            Person person3 = new PersonBuilder().WithAge(39).Build();
+            var scenario1 = true;
+            if (scenario1)
+            {
+                Console.WriteLine("Answer is {0}", simpleCalculator.Add(1, 2));
+            }
+            else
+            {
+                Console.WriteLine(simpleCalculator.Add(1, 2));
+            }
         }
     }
 }
