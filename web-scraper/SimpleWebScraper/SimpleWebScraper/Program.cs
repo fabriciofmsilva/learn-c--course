@@ -1,13 +1,15 @@
-﻿using System;
-
-namespace SimpleWebScraper
+﻿namespace SimpleWebScraper
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Person person = new Person("SSN", "Data", "More Data");
-            Console.WriteLine(person.HasProperDocuments);
+            Person person1 = new Person("John", "Smith");
+            person1.Sleep();
+
+            SuperPerson person2 = new SuperPerson("John", "Doe");
+            person2.Sleep();
+            person2.Fly();
         }
     }
 }

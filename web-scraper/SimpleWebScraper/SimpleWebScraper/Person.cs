@@ -1,23 +1,31 @@
-﻿namespace SimpleWebScraper
+﻿using System;
+
+namespace SimpleWebScraper
 {
     class Person
     {
-        private string _ssn;
-        private string _passportData;
-        private string _driversLicenceNumber;
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
 
-        public Person(string ssn, string passportData, string diversLicenseNumber)
+        public Person(string FirstName, string LastName)
         {
-            _ssn = ssn;
-            _passportData = passportData;
-            _driversLicenceNumber = diversLicenseNumber;
+            this.FirstName = FirstName;
+            this.LastName = LastName;
         }
 
-        public bool HasProperDocuments {
-            get
-            {
-                return _ssn.Length > 0 && _passportData.Length > 0 && _driversLicenceNumber.Length > 0;
-            }
+        public void Walk()
+        {
+            Console.WriteLine("I am walking.");
+        }
+
+        public void Eat()
+        {
+            Console.WriteLine("I am eating.");
+        }
+
+        public void Sleep()
+        {
+            Console.WriteLine("I am sleeping.");
         }
     }
 }
