@@ -2,7 +2,7 @@
 
 namespace SimpleWebScraper
 {
-    public class SuperPerson : Person
+    class SuperPerson : Person
     {
         public SuperPerson(string FirstName, string LastName) :
             base(FirstName, LastName)
