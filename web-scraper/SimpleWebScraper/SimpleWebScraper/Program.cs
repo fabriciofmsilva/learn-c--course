@@ -1,15 +1,17 @@
-﻿namespace SimpleWebScraper
+﻿using System;
+using System.Net;
+
+namespace SimpleWebScraper
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Person person1 = new Person("John", "Smith");
-            person1.Sleep();
-
-            SuperPerson person2 = new SuperPerson("John", "Doe");
-            person2.Sleep();
-            person2.Fly();
+            using (WebClient client = new WebClient())
+            {
+                string googleMainPage = client.DownloadString("https://www.google.com");
+                Console.WriteLine(googleMainPage);
+            }
         }
     }
 }
