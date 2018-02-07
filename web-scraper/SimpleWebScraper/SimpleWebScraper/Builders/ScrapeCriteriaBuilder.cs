@@ -5,14 +5,14 @@ using System.Text.RegularExpressions;
 
 namespace SimpleWebScraper.Builders
 {
-    class ScrapeCriteiaBuilder
+    class ScrapeCriteriaBuilder
     {
         private string _data;
         private string _regex;
         private RegexOptions _regexOptions;
         private List<ScrapeCriteriaPart> _parts;
 
-        public ScrapeCriteiaBuilder()
+        public ScrapeCriteriaBuilder()
         {
             SetDefaults();
         }
@@ -25,25 +25,25 @@ namespace SimpleWebScraper.Builders
             _parts = new List<ScrapeCriteriaPart>();
         }
 
-        public ScrapeCriteiaBuilder WithData(string data)
+        public ScrapeCriteriaBuilder WithData(string data)
         {
             _data = data;
             return this;
         }
 
-        public ScrapeCriteiaBuilder WithRegex(string regex)
+        public ScrapeCriteriaBuilder WithRegex(string regex)
         {
             _regex = regex;
             return this;
         }
 
-        public ScrapeCriteiaBuilder WithRegexOptions(RegexOptions regexOptions)
+        public ScrapeCriteriaBuilder WithRegexOptions(RegexOptions regexOptions)
         {
             _regexOptions = regexOptions;
             return this;
         }
 
-        public ScrapeCriteiaBuilder WithPart(ScrapeCriteriaPart scrapeCriteriaPart)
+        public ScrapeCriteriaBuilder WithPart(ScrapeCriteriaPart scrapeCriteriaPart)
         {
             _parts.Add(scrapeCriteriaPart);
             return this;
