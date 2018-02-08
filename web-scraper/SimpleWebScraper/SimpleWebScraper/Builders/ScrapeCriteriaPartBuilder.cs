@@ -1,6 +1,7 @@
 ﻿using SimpleWebScraper.Data;
-using System;
 using System.Text.RegularExpressions;
+using System.Runtime.CompilerServices;
+[assembly: InternalsVisibleTo("SimpleWebScraper.Test.Unit")]
 
 namespace SimpleWebScraper.Builders
 {
@@ -26,7 +27,7 @@ namespace SimpleWebScraper.Builders
             return this;
         }
 
-        public ScrapeCriteriaPartBuilder WithRegexOptions(RegexOptions regexOption)
+        public ScrapeCriteriaPartBuilder WithRegexOption(RegexOptions regexOption)
         {
             _regexOption = regexOption;
             return this;

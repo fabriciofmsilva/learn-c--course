@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Runtime.CompilerServices;
+[assembly: InternalsVisibleTo("SimpleWebScraper.Test.Unit")]
 
 namespace SimpleWebScraper.Workers
 {

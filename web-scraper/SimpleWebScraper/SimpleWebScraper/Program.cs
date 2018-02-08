@@ -29,14 +29,14 @@ namespace SimpleWebScraper
                     ScrapeCriteria scrapeCriteria = new ScrapeCriteriaBuilder()
                         .WithData(content)
                         .WithRegex(@"<a href=\""(.*?)\"" data-id=\""(.*?)\"" class=\""result-title hdrlnk\"">(.*?)</a>")
-                        .WithRegexOptions(RegexOptions.ExplicitCapture)
+                        .WithRegexOption(RegexOptions.ExplicitCapture)
                         .WithPart(new ScrapeCriteriaPartBuilder()
                             .WithRegex(@">(.*?)</a>")
-                            .WithRegexOptions(RegexOptions.Singleline)
+                            .WithRegexOption(RegexOptions.Singleline)
                             .Build())
                        .WithPart(new ScrapeCriteriaPartBuilder()
                             .WithRegex(@"href=\""(.*?)\""")
-                            .WithRegexOptions(RegexOptions.Singleline)
+                            .WithRegexOption(RegexOptions.Singleline)
                             .Build())
                         .Build();
 
