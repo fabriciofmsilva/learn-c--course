@@ -7,8 +7,12 @@ namespace SudokuSolver
     {
         static void Main(string[] args)
         {
-            Car car = new Car();
-            Person person = new Person(car);
+            Ferrari ferrari = new Ferrari();
+            Person person = new Person(ferrari);
+            person.Drive();
+
+            Lamborghini lamborghini = new Lamborghini();
+            Person person2 = new Person(lamborghini);
             person.Drive();
         }
     }

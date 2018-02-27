@@ -2,25 +2,25 @@
 
 namespace SudokuSolver
 {
-    class Car
+    class Ferrari : ICar
     {
         private bool _on;
 
         public void TurnOnOff()
         {
             _on = !_on;
-            Console.WriteLine(_on ? "The car is on!" : "The car is off!");
+            Console.WriteLine(_on ? "The Ferrari is on!" : "The Ferrari is off!");
         }
 
         public void Drive()
         {
             if (_on)
             {
-                Console.WriteLine("Drive car");
+                Console.WriteLine("Drive Ferrari");
             }
             else
             {
-                Console.WriteLine("have to start car first!");
+                Console.WriteLine("have to start Ferrari first!");
             }
         }
     }
