@@ -2,9 +2,9 @@
 {
     class Person
     {
-        private ICar _car;
+        private Car _car;
 
-        public Person(ICar car)
+        public Person(Car car)
         {
             _car = car;
         }

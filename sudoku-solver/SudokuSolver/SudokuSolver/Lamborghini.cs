@@ -1,16 +1,10 @@
-﻿namespace SudokuSolver
+﻿using System;
+
+namespace SudokuSolver
 {
-    class Lamborghini : ICar
+    class Lamborghini : Car
     {
-        private bool _on;
-
-        public void TurnOnOff()
-        {
-            _on = !_on;
-            Console.WriteLine(_on ? "The Ferrari is on!" : "The Ferrari is off!");
-        }
-
-        public void Drive()
+        public override void Drive()
         {
             if (_on)
             {
