@@ -1,4 +1,9 @@
 ﻿using SudokuSolver.Data;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace SudokuSolver.Workers
 {
@@ -8,7 +13,7 @@ namespace SudokuSolver.Workers
         {
             SudokuMap sudokuMap = new SudokuMap();
 
-            if ((givenRow >= 0 && givenRow <=2) && (givenCol >= 0 && givenCol <= 2))
+            if ((givenRow >= 0 && givenRow <= 2) && (givenCol >= 0 && givenCol <= 2))
             {
                 sudokuMap.StartRow = 0;
                 sudokuMap.StartCol = 0;
@@ -48,7 +53,7 @@ namespace SudokuSolver.Workers
                 sudokuMap.StartRow = 6;
                 sudokuMap.StartCol = 3;
             }
-            else if ((givenRow >= 6 && givenRow <= 6) && (givenCol >= 6 && givenCol <= 8))
+            else if ((givenRow >= 6 && givenRow <= 8) && (givenCol >= 6 && givenCol <= 8))
             {
                 sudokuMap.StartRow = 6;
                 sudokuMap.StartCol = 6;

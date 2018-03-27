@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace SudokuSolver.Workers
 {
@@ -10,7 +14,7 @@ namespace SudokuSolver.Workers
 
             for (int row = 0; row < sudokuBoard.GetLength(0); row++)
             {
-                Console.WriteLine("|");
+                Console.Write("|");
                 for (int col = 0; col < sudokuBoard.GetLength(1); col++)
                 {
                     Console.Write("{0}{1}", sudokuBoard[row, col], "|");

@@ -1,5 +1,9 @@
-﻿using System;
-using SudokuSolver.Workers;
+﻿using SudokuSolver.Workers;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace SudokuSolver.Strategies
 {
@@ -29,54 +33,36 @@ namespace SudokuSolver.Strategies
 
         private void EliminateNakedPairFromOthersInRow(int[,] sudokuBoard, int givenRow, int givenCol)
         {
-            if (!HasNakedPairInRow(sudokuBoard, givenRow, givenCol))
-            {
-                return;
-            }
+            if (!HasNakedPairInRow(sudokuBoard, givenRow, givenCol)) return;
 
             for (int col = 0; col < sudokuBoard.GetLength(1); col++)
             {
                 if (sudokuBoard[givenRow, col] != sudokuBoard[givenRow, givenCol] && sudokuBoard[givenRow, col].ToString().Length > 1)
                 {
-                    ElimiteNakedPair(sudokuBoard, sudokuBoard[givenRow, givenCol], givenRow, col);
+                    EliminateNakedPair(sudokuBoard, sudokuBoard[givenRow, givenCol], givenRow, col);
                 }
             }
         }
-
-        private void ElimiteNakedPair(int[,] sudokuBoard, int valuesToEliminate, int eliminateFromRow, int eliminateFromCol)
-        {
-            var valuesToEliminateArray = valuesToEliminate.ToString().ToCharArray();
-            foreach (var valueToEliminate in valuesToEliminateArray)
-            {
-                sudokuBoard[eliminateFromRow, eliminateFromCol] = Convert.ToInt32(sudokuBoard[eliminateFromRow, eliminateFromCol].ToString().Replace(valueToEliminate.ToString(), string.Empty));
-
-            }
-        }
-
+        
         private bool HasNakedPairInRow(int[,] sudokuBoard, int givenRow, int givenCol)
         {
             for (int col = 0; col < sudokuBoard.GetLength(1); col++)
             {
-                if (givenCol != col && IsNakedPair(sudokuBoard[givenRow, col], sudokuBoard[givenRow, givenCol]))
-                {
-                    return true;
-                }
+                if (givenCol != col && IsNakedPair(sudokuBoard[givenRow, col], sudokuBoard[givenRow, givenCol])) return true;
             }
-           return false;
+
+            return false;
         }
 
         private void EliminateNakedPairFromOthersInCol(int[,] sudokuBoard, int givenRow, int givenCol)
         {
-            if (!HasNakedPairInCol(sudokuBoard, givenRow, givenCol))
-            {
-                return;
-            }
+            if (!HasNakedPairInCol(sudokuBoard, givenRow, givenCol)) return;
 
             for (int row = 0; row < sudokuBoard.GetLength(0); row++)
             {
                 if (sudokuBoard[row, givenCol] != sudokuBoard[givenRow, givenCol] && sudokuBoard[row, givenCol].ToString().Length > 1)
                 {
-                    ElimiteNakedPair(sudokuBoard, sudokuBoard[givenRow, givenCol], row, givenCol);
+                    EliminateNakedPair(sudokuBoard, sudokuBoard[givenRow, givenCol], row, givenCol);
                 }
             }
         }
@@ -85,20 +71,15 @@ namespace SudokuSolver.Strategies
         {
             for (int row = 0; row < sudokuBoard.GetLength(0); row++)
             {
-                if (givenRow != row && IsNakedPair(sudokuBoard[row, givenCol], sudokuBoard[givenRow, givenCol]))
-                {
-                    return true;
-                }
+                if (givenRow != row && IsNakedPair(sudokuBoard[row, givenCol], sudokuBoard[givenRow, givenCol])) return true;
             }
+
             return false;
         }
 
         private void EliminateNakedPairFromOthersInBlock(int[,] sudokuBoard, int givenRow, int givenCol)
         {
-            if (!HasNakedPairInBlock(sudokuBoard, givenRow, givenCol))
-            {
-                return;
-            }
+            if (!HasNakedPairInBlock(sudokuBoard, givenRow, givenCol)) return;
 
             var sudokuMap = _sudokuMapper.Find(givenRow, givenCol);
 
@@ -108,7 +89,7 @@ namespace SudokuSolver.Strategies
                 {
                     if (sudokuBoard[row, col].ToString().Length > 1 && sudokuBoard[row, col] != sudokuBoard[givenRow, givenCol])
                     {
-                        ElimiteNakedPair(sudokuBoard, sudokuBoard[givenRow, givenCol], row, col);
+                        EliminateNakedPair(sudokuBoard, sudokuBoard[givenRow, givenCol], row, col);
                     }
                 }
             }
@@ -124,14 +105,20 @@ namespace SudokuSolver.Strategies
                     var elementInSameBlock = _sudokuMapper.Find(givenRow, givenCol).StartRow == _sudokuMapper.Find(row, col).StartRow &&
                         _sudokuMapper.Find(givenRow, givenCol).StartCol == _sudokuMapper.Find(row, col).StartCol;
 
-                    if (!elementSame && elementInSameBlock && IsNakedPair(sudokuBoard[givenRow, givenCol], sudokuBoard[row, col])
-                    {
-                        return true;
-                    }
+                    if (!elementSame && elementInSameBlock && IsNakedPair(sudokuBoard[givenRow, givenCol], sudokuBoard[row, col])) return true;
                 }
             }
 
             return false;
+        }
+
+        private void EliminateNakedPair(int[,] sudokuBoard, int valuesToEliminate, int eliminateFromRow, int eliminateFromCol)
+        {
+            var valuesToEliminateArray = valuesToEliminate.ToString().ToCharArray();
+            foreach (var valueToEliminate in valuesToEliminateArray)
+            {
+                sudokuBoard[eliminateFromRow, eliminateFromCol] = Convert.ToInt32(sudokuBoard[eliminateFromRow, eliminateFromCol].ToString().Replace(valueToEliminate.ToString(), string.Empty));
+            }
         }
 
         private bool IsNakedPair(int firstPair, int secondPair)

@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace SudokuSolver.Workers
 {
@@ -14,9 +17,9 @@ namespace SudokuSolver.Workers
                 var sudokuBoardLines = File.ReadAllLines(filename);
 
                 int row = 0;
-                foreach (var sudokuBoardLine in sudokuBoardLines)
+                foreach(var sudokuBoardLine in sudokuBoardLines)
                 {
-                    string[] sudokuBoardLineElements = sudokuBoardLine.Split("|").Skip(1).Take(9).ToArray();
+                    string[] sudokuBoardLineElements = sudokuBoardLine.Split('|').Skip(1).Take(9).ToArray();
 
                     int col = 0;
                     foreach (var sudokuBoardLineElement in sudokuBoardLineElements)

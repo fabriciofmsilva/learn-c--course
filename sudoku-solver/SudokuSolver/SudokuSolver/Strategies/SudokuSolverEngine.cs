@@ -1,6 +1,10 @@
-﻿using SudokuSolver.Workers;
+﻿using SudokuSolver.Strategies;
+using SudokuSolver.Workers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace SudokuSolver.Strategies
 {
@@ -19,7 +23,8 @@ namespace SudokuSolver.Strategies
         {
             List<ISudokuStrategy> strategies = new List<ISudokuStrategy>()
             {
-
+                new SimpleMarkUpStrategy(_sudokuMapper),
+                new NakedPairsStrategy(_sudokuMapper)
             };
 
             var currentState = _sudokuBoardStateManager.GenerateState(sudokuBoard);
@@ -28,13 +33,9 @@ namespace SudokuSolver.Strategies
             while(!_sudokuBoardStateManager.IsSolved(sudokuBoard) && currentState != nextState)
             {
                 currentState = nextState;
-
-                foreach (var strategy in strategies)
-                {
-                    nextState = _sudokuBoardStateManager.GenerateState(strategy.Solve(sudokuBoard));
-                }
+                foreach (var strategy in strategies) nextState = _sudokuBoardStateManager.GenerateState(strategy.Solve(sudokuBoard));
             }
-
+            
             return _sudokuBoardStateManager.IsSolved(sudokuBoard);
         }
     }

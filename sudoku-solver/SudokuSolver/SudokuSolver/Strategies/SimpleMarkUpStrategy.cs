@@ -1,6 +1,9 @@
 ﻿using SudokuSolver.Workers;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace SudokuSolver.Strategies
 {
@@ -21,8 +24,8 @@ namespace SudokuSolver.Strategies
                 {
                     if (sudokuBoard[row, col] == 0 || sudokuBoard[row, col].ToString().Length > 1)
                     {
-                        int possibilitiesInRowAndCol = GetPossibilitiesInRowAndCol(sudokuBoard, row, col);
-                        int possibilitiesInBlock = GetPossibilitiesInBlock(sudokuBoard, row, col);
+                        var possibilitiesInRowAndCol = GetPossibilitiesInRowAndCol(sudokuBoard, row, col);
+                        var possibilitiesInBlock = GetPossibilitiesInBlock(sudokuBoard, row, col);
                         sudokuBoard[row, col] = GetPossibilityIntersection(possibilitiesInRowAndCol, possibilitiesInBlock);
                     }
                 }
@@ -35,21 +38,8 @@ namespace SudokuSolver.Strategies
         {
             int[] possibilities = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
-            for (int col = 0; col < 0; col++)
-            {
-                if (IsValidSingle(sudokuBoard[givenRow, col]))
-                {
-                    possibilities[sudokuBoard[givenRow, col] - 1] = 0;
-                }
-            }
-
-            for (int row = 0; row < 0; row++)
-            {
-                if (IsValidSingle(sudokuBoard[row, givenCol]))
-                {
-                    possibilities[sudokuBoard[row, givenCol] - 1] = 0;
-                }
-            }
+            for (int col = 0; col < 9; col++) if (IsValidSingle(sudokuBoard[givenRow, col])) possibilities[sudokuBoard[givenRow, col] - 1] = 0;
+            for (int row = 0; row < 9; row++) if (IsValidSingle(sudokuBoard[row, givenCol])) possibilities[sudokuBoard[row, givenCol] - 1] = 0;
 
             return Convert.ToInt32(String.Join(string.Empty, possibilities.Select(p => p).Where(p => p != 0)));
         }
@@ -64,10 +54,7 @@ namespace SudokuSolver.Strategies
             {
                 for (int col = sudokuMap.StartCol; col <= sudokuMap.StartCol + 2; col++)
                 {
-                    if (IsValidSingle(sudokuBoard[row, col]))
-                    {
-                        possibilities[sudokuBoard[row, col] - 1] = 0;
-                    }
+                    if (IsValidSingle(sudokuBoard[row, col])) possibilities[sudokuBoard[row, col] - 1] = 0;
                 }
             }
 
@@ -79,12 +66,11 @@ namespace SudokuSolver.Strategies
             return cellDigit != 0 && cellDigit.ToString().Length == 1;
         }
 
-        private int GetPossibilityIntersection(object possibilitiesInRowAndCol, object possibilitiesInBlock)
+        private int GetPossibilityIntersection(int possibilitiesInRowAndCol, int possibilitiesInBlock)
         {
             var possibilitiesInRowAndColCharArray = possibilitiesInRowAndCol.ToString().ToCharArray();
             var possibilitiesInBlockCharArray = possibilitiesInBlock.ToString().ToCharArray();
             var possibilitiesSubset = possibilitiesInRowAndColCharArray.Intersect(possibilitiesInBlockCharArray);
-
             return Convert.ToInt32(string.Join(string.Empty, possibilitiesSubset));
         }
     }
