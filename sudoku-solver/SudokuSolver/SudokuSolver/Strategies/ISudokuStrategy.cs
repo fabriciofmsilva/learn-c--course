@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SudokuSolver.Strategies
 {
-    interface ISudokuStrategy
+    public interface ISudokuStrategy
     {
         int[,] Solve(int[,] sudokuBoard);
     }

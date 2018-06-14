@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SudokuSolver.Workers
 {
-    class SudokuMapper
+    public class SudokuMapper
     {
         public SudokuMap Find(int givenRow, int givenCol)
         {

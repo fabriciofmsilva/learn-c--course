@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SudokuSolver.Strategies
 {
-    class SimpleMarkUpStrategy : ISudokuStrategy
+    public class SimpleMarkUpStrategy : ISudokuStrategy
     {
         private readonly SudokuMapper _sudokuMapper;
 
