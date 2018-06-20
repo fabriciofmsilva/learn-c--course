@@ -11,6 +11,9 @@ namespace CSharp7Demo
 
             RefLocalsAndReturns refLocalsAndReturns = new RefLocalsAndReturns();
             refLocalsAndReturns.Run();
+
+            Deconstruction descontruction = new Deconstruction();
+            descontruction.Run();
         }
     }
 }
