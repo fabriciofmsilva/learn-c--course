@@ -17,6 +17,9 @@ namespace CSharp7Demo
 
             PatternMatching patternMatching = new PatternMatching();
             patternMatching.Run();
+
+            Tuples tuples = new Tuples();
+            tuples.Run();
         }
     }
 }
