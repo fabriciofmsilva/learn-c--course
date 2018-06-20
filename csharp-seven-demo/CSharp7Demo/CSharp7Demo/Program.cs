@@ -14,6 +14,9 @@ namespace CSharp7Demo
 
             Deconstruction descontruction = new Deconstruction();
             descontruction.Run();
+
+            PatternMatching patternMatching = new PatternMatching();
+            patternMatching.Run();
         }
     }
 }
